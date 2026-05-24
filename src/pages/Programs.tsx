@@ -32,7 +32,7 @@ export default function Programs() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
-                className="group p-8 rounded-lg border border-white/5 hover:border-white/10 transition-all bg-white/[0.01]"
+                className="group p-6 md:p-8 rounded-lg border border-white/5 hover:border-white/10 transition-all bg-white/[0.01]"
               >
                 {Icon && (
                   <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-5 group-hover:bg-white/10 transition-colors">
@@ -53,9 +53,9 @@ export default function Programs() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 p-6 rounded-lg border border-white/5 bg-white/[0.01]"
+          className="mt-12 md:mt-16 p-5 md:p-6 rounded-lg border border-white/5 bg-white/[0.01]"
         >
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-3 md:gap-4">
             <Building2 size={20} className="text-muted-foreground/30 shrink-0 mt-0.5" />
             <div>
               <h3 className="text-sm font-display text-foreground mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>

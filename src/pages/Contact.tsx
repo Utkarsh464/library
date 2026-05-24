@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -65,7 +65,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="p-8 rounded-xl border border-white/10 bg-white/[0.02] text-center"
+            className="p-6 md:p-8 rounded-xl border border-white/10 bg-white/[0.02] text-center"
           >
             <BookOpen size={28} className="text-muted-foreground/30 mx-auto mb-4" />
             <p className="text-sm text-muted-foreground mb-6 max-w-xs mx-auto">

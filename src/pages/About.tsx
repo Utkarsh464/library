@@ -16,7 +16,7 @@ export default function About() {
           </h1>
         </motion.div>
 
-        <div className="space-y-6 text-sm text-muted-foreground leading-relaxed max-w-3xl">
+        <div className="space-y-5 md:space-y-6 text-sm text-muted-foreground leading-relaxed max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

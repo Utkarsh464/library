@@ -99,7 +99,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-10 left-0 right-0 flex items-center justify-center gap-6 text-xs tracking-[0.2em] uppercase text-foreground/40 font-mono"
+          className="absolute bottom-10 left-0 right-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-4 text-xs tracking-[0.2em] uppercase text-foreground/40 font-mono"
         >
           <span className="flex items-center gap-1.5"><BookOpen size={12} /> 300+ Titles</span>
           <span className="w-1 h-1 rounded-full bg-foreground/10" />
@@ -113,7 +113,7 @@ export default function Home() {
       {SECTIONS.map((section, i) => (
         <section
           key={section.id}
-          className={`py-32 md:py-40 ${i > 0 ? 'border-t border-foreground/10' : ''}`}
+          className={`py-20 md:py-32 lg:py-40 ${i > 0 ? 'border-t border-foreground/10' : ''}`}
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-4xl">
@@ -131,7 +131,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-display leading-[1.05] tracking-tight mb-8"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display leading-[1.1] sm:leading-[1.05] tracking-tight mb-6 md:mb-8"
                 style={{ fontFamily: "'Instrument Serif', serif" }}
               >
                 {section.title}
@@ -164,7 +164,7 @@ export default function Home() {
       ))}
 
       {/* CTA */}
-      <section className="py-32 border-t border-foreground/10 text-center px-6">
+      <section className="py-20 md:py-32 border-t border-foreground/10 text-center px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,10 +173,10 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-xs tracking-[0.25em] uppercase text-foreground/40 font-mono mb-4">Connect</p>
-            <h2 className="text-3xl md:text-5xl font-display leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            <h2 className="text-3xl md:text-5xl font-display leading-[1.1] tracking-tight mb-4 md:mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
               Have a question?
             </h2>
-            <p className="text-base md:text-lg text-foreground/65 leading-relaxed max-w-xl mx-auto mb-10">
+            <p className="text-sm sm:text-base md:text-lg text-foreground/65 leading-relaxed max-w-xl mx-auto mb-8 md:mb-10">
               Looking for a specific title? Want to volunteer or suggest a program?
               Send us a message — we'd love to hear from you.
             </p>
