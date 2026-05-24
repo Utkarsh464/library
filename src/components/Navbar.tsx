@@ -76,37 +76,50 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-black/50"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-background border-l border-foreground/10 flex flex-col"
+              transition={{ type: 'spring', damping: 30, stiffness: 240 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] sm:w-[320px] flex flex-col bg-background/80 backdrop-blur-2xl border-l border-foreground/10"
             >
-              <div className="flex-1 flex flex-col justify-center px-8 gap-1">
+              {/* Top decorative line */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+
+              <div className="relative z-10 flex-1 flex flex-col justify-center px-10 gap-1">
                 {NAV_ITEMS.map((item, i) => (
                   <motion.div
                     key={item.path}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + i * 0.05 }}
+                    transition={{ delay: 0.1 + i * 0.06 }}
                   >
                     <Link
                       to={item.path}
-                      className={`block py-3 text-lg font-display tracking-wide transition-colors ${
-                        pathname === item.path ? 'text-foreground' : 'text-foreground/60 hover:text-foreground'
+                      className={`group block py-3.5 ${
+                        pathname === item.path ? '' : ''
                       }`}
-                      style={{ fontFamily: "'Instrument Serif', serif" }}
                     >
-                      {item.label}
+                      <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-foreground/20 group-hover:text-foreground/50 transition-colors">
+                        {`0${i + 1}`}
+                      </span>
+                      <span
+                        className={`block text-xl md:text-2xl font-display tracking-tight transition-colors mt-0.5 ${
+                          pathname === item.path ? 'text-foreground' : 'text-foreground/50 group-hover:text-foreground'
+                        }`}
+                        style={{ fontFamily: "'Instrument Serif', serif" }}
+                      >
+                        {item.label}
+                      </span>
+                      <span className="block h-px bg-foreground/5 mt-3 group-hover:bg-foreground/20 transition-colors" />
                     </Link>
-                    <span className="block h-px bg-foreground/5" />
                   </motion.div>
                 ))}
               </div>
-              <div className="px-8 pb-10">
+
+              <div className="relative z-10 px-10 pb-10">
                 <a
                   href="https://ig.me/m/webgrowth.in"
                   target="_blank"
@@ -115,6 +128,9 @@ export default function Navbar() {
                 >
                   <Instagram size={14} /> Message Us
                 </a>
+                <p className="text-center text-[10px] text-foreground/20 mt-3 tracking-wider font-mono">
+                  @webgrowth.in
+                </p>
               </div>
             </motion.div>
           </>
