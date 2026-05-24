@@ -1,8 +1,8 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import AnimatedPage from './components/AnimatedPage'
 import Home from './pages/Home'
 import Programs from './pages/Programs'
 import About from './pages/About'
@@ -10,6 +10,11 @@ import Contact from './pages/Contact'
 
 export default function App() {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location.pathname])
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <video
@@ -23,14 +28,20 @@ export default function App() {
         <Navbar />
         <main className="flex-1">
           <AnimatePresence mode="wait">
-            <AnimatedPage key={location.pathname}>
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            >
               <Routes location={location}>
                 <Route path="/" element={<Home />} />
                 <Route path="/programs" element={<Programs />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
-            </AnimatedPage>
+            </motion.div>
           </AnimatePresence>
         </main>
         <Footer />
